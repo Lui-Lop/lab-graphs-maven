@@ -975,5 +975,18 @@ public class Graph {
     } // if
     return num;
   } // safeVertexNumber(String)
+  
+  public void reachableFrom(PrintWriter pen, int vertex) {
+    //Done in class on the whiteboard/discussion
+    if (!isMarked(vertex)) { // Probably not be necessary
+      mark(vertex);
+      pen.println(vertex);
+      for (Vertex neighbor : this.verices[vertex]) {
+        if (!marked(neighbor)) {
+          traverseRecursive(pen, neighbor);
+        } // if
+      } // for
+    } // if
+  }
 
 } // class Graph
