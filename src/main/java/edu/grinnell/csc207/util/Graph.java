@@ -987,14 +987,13 @@ public class Graph {
    *  vertex we are starting from
    */
   public void reachableFrom(PrintWriter pen, int vertex) {
-    //Done in class on the whiteboard/discussion
-    if (!isMarked(vertex)) { // Probably not be necessary
+    if (!isMarked(vertex)) {
       mark(vertex);
       pen.println(vertex);
       for (Edge neighbor : this.vertices[vertex]) {
         if (!isMarked(neighbor.target())) {
           pen.println(" ->" + neighbor.target());
-          reachableFrom(pen, vertex);
+          reachableFrom(pen, neighbor.target());
         } // if
       } // for
     } // if
