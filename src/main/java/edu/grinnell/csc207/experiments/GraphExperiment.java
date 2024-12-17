@@ -34,6 +34,7 @@ public class GraphExperiment {
     g.addEdge("b", "c", 3);
     g.addEdge("b", "a", 4);
     g.dumpWithNames(pen);
+    g.reachableFrom(pen, 1);
 
     // Remove a vertex
     g.removeVertex("b");

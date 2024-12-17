@@ -976,14 +976,25 @@ public class Graph {
     return num;
   } // safeVertexNumber(String)
   
+
+  /**
+   * Prints all the reachable vertices
+   * 
+   * @param pen
+   *  where we will print all vertices
+   * 
+   * @param vertex
+   *  vertex we are starting from
+   */
   public void reachableFrom(PrintWriter pen, int vertex) {
     //Done in class on the whiteboard/discussion
     if (!isMarked(vertex)) { // Probably not be necessary
       mark(vertex);
       pen.println(vertex);
-      for (Vertex neighbor : this.verices[vertex]) {
-        if (!marked(neighbor)) {
-          traverseRecursive(pen, neighbor);
+      for (Edge neighbor : this.vertices[vertex]) {
+        if (!isMarked(neighbor.target())) {
+          pen.println(" ->" + neighbor.target());
+          reachableFrom(pen, vertex);
         } // if
       } // for
     } // if
